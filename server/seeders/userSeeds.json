@@ -1,0 +1,70 @@
+[
+  {
+    "firstName": "Pamela",
+    "lastName": "Washington",
+    "email": "pamela@testmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Troy",
+    "lastName": "Smith",
+    "email": "troy@testmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Fred",
+    "lastName": "Little",
+    "email": "fred@testmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Derek",
+    "lastName": "Lang",
+    "email": "derek@testmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Leo",
+    "lastName": "Silva",
+    "email": "leo@testmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Jake",
+    "lastName": "Clay",
+    "email": "jake@testmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Charlie",
+    "lastName": "Brooks",
+    "email": "charlie@testmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Guy",
+    "lastName": "Tan",
+    "email": "guy@testmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Em",
+    "lastName": "Lea",
+    "email": "em@testmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Molly",
+    "lastName": "O'Harry",
+    "email": "molly@testmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Liza",
+    "lastName": "Bright",
+    "email": "liza@testmail.com",
+    "password": "password12345"
+  }
+
+  
+]
