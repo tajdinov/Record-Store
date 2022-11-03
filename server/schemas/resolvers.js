@@ -26,11 +26,11 @@ const resolvers = {
     users: async () => {
       return User.find().populate('thoughts');
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+    user: async (parent, { firstname }) => {
+      return User.findOne({ firstname }).populate('thoughts');
     },
-    thoughts: async (parent, { username }) => {
-      const params = username ? { username } : {};
+    thoughts: async (parent, { firstname }) => {
+      const params = firstname ? { firstname } : {};
       return Thought.find(params).sort({ createdAt: -1 });
     },
     thought: async (parent, { thoughtId }) => {
@@ -119,7 +119,7 @@ const resolvers = {
       if (context.user) {
         const thought = await Thought.create({
           thoughtText,
-          thoughtAuthor: context.user.username,
+          thoughtAuthor: context.user.firstname,
         });
 
         await User.findOneAndUpdate(
@@ -137,7 +137,7 @@ const resolvers = {
           { _id: thoughtId },
           {
             $addToSet: {
-              comments: { commentText, commentAuthor: context.user.username },
+              comments: { commentText, commentAuthor: context.user.firstname },
             },
           },
           {
@@ -152,7 +152,7 @@ const resolvers = {
       if (context.user) {
         const thought = await Thought.findOneAndDelete({
           _id: thoughtId,
-          thoughtAuthor: context.user.username,
+          thoughtAuthor: context.user.firstname,
         });
 
         await User.findOneAndUpdate(
@@ -172,7 +172,7 @@ const resolvers = {
             $pull: {
               comments: {
                 _id: commentId,
-                commentAuthor: context.user.username,
+                commentAuthor: context.user.firstname,
               },
             },
           },
