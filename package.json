@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/tajdinov/Record-Store/issues"
   },
-  "homepage": "https://github.com/tajdinov/Record-Store#readme"
+  "homepage": "https://github.com/tajdinov/Record-Store#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
 }

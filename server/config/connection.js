@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/record-store', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/record-store', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  
 });
 
 module.exports = mongoose.connection;

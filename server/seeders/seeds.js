@@ -23,7 +23,7 @@ db.once('open', async () => {
       name: 'I AM IN LOVE - CELA',
       description:
         'Limited edition of a great pre-80s Italian disco production with massive funky basslines and great vocals produced by Marty Celay and Robert Drake.',
-      image: 'celo.jpg',
+      image: 'celo.jpeg',
       category: categories[0]._id,
       price: 28.00,
       quantity: 3
@@ -32,7 +32,7 @@ db.once('open', async () => {
       name: 'GIVE UP - NEDDY SMITH',
       description:
         '"Give It Up" is one of the best classic boogie and soul funk song, very rare and sought after coming from the legendary Delirium Records.',
-      image: 'neddy.jpg',
+      image: 'neddy.jpeg',
       category: categories[0]._id,
       price: 30.00,
       quantity: 2
@@ -42,7 +42,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       description:
         '"Every time you go into the recording booth, you have to play like this is your only shot.” —Prince, 1978',
-      image: 'prince.jpg',
+      image: 'prince.jpeg',
       price: 46.00,
       quantity: 0
     },
@@ -51,7 +51,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       description:
         'Like the artist himself, the music on this brilliant album defies all categories, embracing Terry Calliercas wide range of influences and experiences.',
-      image: 'callier.jpg',
+      image: 'callier.jpeg',
       price: 45.00,
       quantity: 5
     },
@@ -60,7 +60,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       description:
         'Accompanied by Hiram Bullock (guitar), Cliff Carter (keyboards), Wilber Bascomb (bass), Jeremy Steig (flute), and others, Idris Muhammad ventures into the world of pop and R&B, annoying die-hard jazz fans.idris',
-      image: 'idris.jpg',
+      image: 'idris.jpeg',
       price: 35.00,
       quantity: 2
     },
@@ -69,7 +69,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'Limited edition 50th anniversary coloured vinyl.',
-      image: 'riot.jpg',
+      image: 'riot.jpeg',
       price: 48.00,
       quantity: 3
     },
@@ -78,7 +78,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'Tales of Kidd Funkadelic is the eighth studio album by the band Funkadelic, released in September 1976 on the Westbound record label.',
-      image: 'tales.jpg',
+      image: 'tales.jpeg',
       price: 43.00,
       quantity: 1
     },
@@ -87,7 +87,7 @@ db.once('open', async () => {
       category: categories[3]._id,
       description:
         'Double vinyl LP pressing.',
-      image: 'nas.jpg',
+      image: 'nas.jpeg',
       price: 55.00,
       quantity: 1
     },
@@ -95,7 +95,7 @@ db.once('open', async () => {
       name: 'LOUD - RIHANNA',
       category: categories[3]._id,
       description: 'Double vinyl LP pressing in gatefold jacket.',
-      image: 'loud.jpg',
+      image: 'loud.jpeg',
       price: 60.00,
       quantity: 0
     },
@@ -104,7 +104,7 @@ db.once('open', async () => {
       category: categories[4]._id,
       description:
         '2022 release, the fourth album from the singer and rapper.',
-      image: 'lizzo.jpg',
+      image: 'lizzo.jpeg',
       price: 52.00,
       quantity: 80
     },
@@ -113,7 +113,7 @@ db.once('open', async () => {
       category: categories[4]._id,
       description:
         'Limited edition pink vinyl. Second studio album by American singer and rapper.',
-      image: 'doja.jpg',
+      image: 'doja.jpeg',
       price: 50.00,
       quantity: 60
     }
