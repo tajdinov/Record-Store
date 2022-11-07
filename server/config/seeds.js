@@ -1,5 +1,6 @@
 const db = require('./connection');
 const { User, Product, Category, Thought } = require('../models');
+const thoughtSeeds = require('./thoughtSeeds.json');
 
 db.once('open', async () => {
   await Category.deleteMany();
@@ -196,6 +197,17 @@ db.once('open', async () => {
 
   await Thought.deleteMany();
 
+  for (let i = 0; i < thoughtSeeds.length; i++) {
+    const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
+    const user = await User.findOneAndUpdate(
+      { firstName: thoughtAuthor },
+      {
+        $addToSet: {
+          thoughts: _id,
+        },
+      }
+    );
+  }
   
 
   console.log('thoughts seeded');
