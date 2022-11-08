@@ -17,6 +17,8 @@ import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
+import Forum from './pages/Forum';
+import SingleThought from './pages/SingleThought';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -66,8 +68,16 @@ function App() {
                 element={<OrderHistory />} 
               />
               <Route 
+                path="/forum" 
+                element={<Forum />} 
+              />
+              <Route 
                 path="/products/:id" 
                 element={<Detail />} 
+              />
+              <Route 
+                path="/thoughts/:thoughtId"
+                element={<SingleThought />}
               />
               <Route 
                 path="*" 

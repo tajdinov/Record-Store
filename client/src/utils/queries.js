@@ -53,6 +53,11 @@ export const QUERY_USER = gql`
     user {
       firstName
       lastName
+      thoughts {
+        _id
+        thoughtText
+        createdAt
+      }
       orders {
         _id
         purchaseDate
@@ -64,6 +69,56 @@ export const QUERY_USER = gql`
           quantity
           image
         }
+      }
+    }
+  }
+`;
+
+export const QUERY_THOUGHTS = gql`
+  query getThoughts {
+    thoughts {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
+    }
+  }
+`;
+
+export const QUERY_SINGLE_THOUGHT = gql`
+  query getSingleThought($thoughtId: ID!) {
+    thought(thoughtId: $thoughtId) {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      firstName
+      email
+      thoughts {
+        _id
+        thoughtText
+        thoughtAuthor
+        createdAt
       }
     }
   }

@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Order } = require('../models');
+const { User, Product, Category, Order, Thought } = require('../models');
 const { signToken } = require('../utils/auth');
 require("dotenv").config();
 const stripe = require('stripe')(process.env.STRIPE_KEY);
@@ -7,17 +7,33 @@ const stripe = require('stripe')(process.env.STRIPE_KEY);
 
 const resolvers = {
   Query: {
+
+    user: async (parent, args, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate('thoughts',{
+          path: 'orders.products',
+          populate: 'category',
+        });
+
+        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+
+        return user;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+
     users: async () => {
       return User.find().populate('thoughts');
     },
 
     thoughts: async (parent, { firstName }) => {
       const params = firstName ? { firstName } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+      return Thought.find(params).populate({path: 'user', options: { sort: { 'created_at': -1 } } });
     },
 
     thought: async (parent, { _id }) => {
-      return await Thought.findbyId(_id).populate('user');
+      return Thought.findOne({ _id: _id }.populate({path: 'user'}));
     },
 
     me: async (parent, args, context) => {
@@ -51,20 +67,7 @@ const resolvers = {
       return await Product.findById(_id).populate('category');
     },
 
-    user: async (parent, args, context) => {
-      if (context.user) {
-        const user = await User.findById(context.user._id).populate('thoughts',{
-          path: 'orders.products',
-          populate: 'category',
-        });
-
-        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
-
-        return User.findOne({ firstName }).populate('thoughs');
-      }
-
-      throw new AuthenticationError('Not logged in');
-    },
+    
 
     order: async (parent, { _id }, context) => {
       if (context.user) {
@@ -135,16 +138,17 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    
     addThought: async (parent, { thoughtText }, context) => {
+      console.log(context);
       if (context.user) {
         const thought = await Thought.create({
           thoughtText,
-          thoughtAuthor: context.user.username,
+          thoughtAuthor: context.user.firstName,
         });
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { thoughts: thought._id } }
+        await User.findOneAndUpdate( context.user._id, { $addToSet: { thoughts: thought._id } }
+
         );
 
         return thought;
@@ -157,7 +161,7 @@ const resolvers = {
           { _id: thoughtId },
           {
             $addToSet: {
-              comments: { commentText, commentAuthor: context.user.username },
+              comments: { commentText, commentAuthor: context.user.firstName },
             },
           },
           {
@@ -172,7 +176,7 @@ const resolvers = {
       if (context.user) {
         const thought = await Thought.findOneAndDelete({
           _id: thoughtId,
-          thoughtAuthor: context.user.username,
+          thoughtAuthor: context.user.firstName,
         });
 
         await User.findOneAndUpdate(
@@ -192,7 +196,7 @@ const resolvers = {
             $pull: {
               comments: {
                 _id: commentId,
-                commentAuthor: context.user.username,
+                commentAuthor: context.user.firstName,
               },
             },
           },
