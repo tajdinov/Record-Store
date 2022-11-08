@@ -33,7 +33,7 @@ const resolvers = {
     },
 
     thought: async (parent, { _id }) => {
-      return Thought.findOne({ _id:_id }).populate('user');
+      return Thought.findOne({ _id:_id }).populate({path: 'user'});
     },
 
     me: async (parent, args, context) => {
@@ -145,6 +145,7 @@ const resolvers = {
         const thought = await Thought.create({
           thoughtText,
           thoughtAuthor: context.user.firstName,
+          user: context.user._id
         });
 
         await User.findOneAndUpdate( context.user._id, { $addToSet: { thoughts: thought._id } }
