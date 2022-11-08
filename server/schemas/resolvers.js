@@ -33,7 +33,7 @@ const resolvers = {
     },
 
     thought: async (parent, { _id }) => {
-      return Thought.findOne({ _id: _id }.populate({path: 'user'}));
+      return Thought.findOne({ _id:_id }).populate('user');
     },
 
     me: async (parent, args, context) => {
