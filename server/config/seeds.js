@@ -3,6 +3,7 @@ const { User, Product, Category, Thought } = require('../models');
 const thoughtSeeds = require('./thoughtSeeds.json');
 
 db.once('open', async () => {
+ try {
   await Category.deleteMany();
 
   const categories = await Category.insertMany([
@@ -212,6 +213,9 @@ db.once('open', async () => {
         },
       }
     );
+  }} catch (err) {
+    console.error(err);
+    process.exit(1);
   }
   
 

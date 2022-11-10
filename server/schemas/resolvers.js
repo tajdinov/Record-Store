@@ -10,7 +10,7 @@ const resolvers = {
 
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
+        const user = await User.findById(context.user._id).populate('thoughts',{
           path: 'orders.products',
           populate: 'category',
         });
@@ -29,11 +29,11 @@ const resolvers = {
 
     thoughts: async (parent, { firstName }) => {
       const params = firstName ? { firstName } : {};
-      return Thought.find(params).populate({path: 'user', options: { sort: { 'created_at': -1 } } });
+      return Thought.find(params).sort({ createdAt: -1 });
     },
 
     thought: async (parent, { _id }) => {
-      return Thought.findOne({ _id: _id }).populate('user');
+      return Thought.findOne({ _id: _id });
     },
 
     categories: async () => {
@@ -141,7 +141,8 @@ const resolvers = {
           user: context.user._id
         });
 
-        await User.findOneAndUpdate( context.user._id, { $addToSet: { thoughts: thought._id } }
+        await User.findOneAndUpdate( { _id: context.user._id }, { $addToSet: { thoughts: thought._id } }, { new: true }
+          //{ _id: context.user._id }, { $addToSet: { thoughts: {thought._id }}, { new: true }
 
         );
 

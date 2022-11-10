@@ -42,6 +42,32 @@ function OrderHistory() {
                 </div>
               </div>
             ))}
+            <h2>
+              Post History for {user.firstName} {user.lastName}
+            </h2>
+            {user.thoughts.map((thought) => (
+              <div key={thought._id} className="card mb-3">
+              <h4 className="card-header bg-primary text-light p-2 m-0">
+                  <Link
+                    className="text-light"
+                    to={`/thoughts/${thought._id}`}
+                  >
+                    {thought.thoughtAuthor} <br />
+                  </Link>
+              </h4>
+              <div className="card-body bg-light p-2">
+                <p>{thought.thoughtText}</p>
+              </div>
+              
+              
+              <Link
+                className="btn btn-primary btn-block btn-squared"
+                to={`/thoughts/${thought._id}`}
+              >
+                Join the discussion.
+              </Link>
+            </div>
+            ))}
           </>
         ) : null}
       </div>
