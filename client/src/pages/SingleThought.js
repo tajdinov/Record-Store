@@ -10,12 +10,13 @@ import CommentForm from '../components/CommentForm';
 import { QUERY_SINGLE_THOUGHT } from '../utils/queries';
 
 const SingleThought = () => {
-  // Use `useParams()` to retrieve value of the route parameter `:profileId`
-  const { thoughtId } = useParams();
+  
+  const url = window.location.pathname;
+  const id = url.substring(url.lastIndexOf('/') + 1);
 
   const { loading, data } = useQuery(QUERY_SINGLE_THOUGHT, {
     // pass URL parameter
-    variables: { thoughtId: thoughtId },
+    variables: { _id: id },
   });
 
   const thought = data?.thought || {};

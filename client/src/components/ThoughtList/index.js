@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import CommentList from '../CommentList';
+
 const ThoughtList = ({
   thoughts,
   title,
   showTitle = true,
-  showFirstName = true,
+  showfirstName = true,
 }) => {
   if (!thoughts.length) {
     return <h3>No Thoughts Yet</h3>;
@@ -13,38 +15,33 @@ const ThoughtList = ({
 
   return (
     <div>
-      {showTitle && <h3>{title}</h3>}
+
       {thoughts &&
         thoughts.map((thought) => (
           <div key={thought._id} className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
-              {showFirstName ? (
                 <Link
                   className="text-light"
-                  to={`/profiles/${thought.thoughtAuthor}`}
+                  to={`/thoughts/${thought._id}`}
                 >
                   {thought.thoughtAuthor} <br />
-                  <span style={{ fontSize: '1rem' }}>
-                    {thought.createdAt}
-                  </span>
                 </Link>
-              ) : (
-                <>
-                  <span style={{ fontSize: '1rem' }}>
-                    You had this thought on {thought.createdAt}
-                  </span>
-                </>
-              )}
             </h4>
             <div className="card-body bg-light p-2">
               <p>{thought.thoughtText}</p>
+            </div>
+            <div className="my-5">
+            <span style={{ fontSize: '1rem' }}>
+                    {thought.createdAt}
+                  </span>
+              <CommentList comments={thought.comments} />
             </div>
             
             <Link
               className="btn btn-primary btn-block btn-squared"
               to={`/thoughts/${thought._id}`}
             >
-              Join the discussion on this thought.
+              Join the discussion.
             </Link>
           </div>
         ))}

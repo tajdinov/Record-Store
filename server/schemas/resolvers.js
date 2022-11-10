@@ -10,7 +10,7 @@ const resolvers = {
 
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate('thoughts',{
+        const user = await User.findById(context.user._id).populate({
           path: 'orders.products',
           populate: 'category',
         });
@@ -33,14 +33,7 @@ const resolvers = {
     },
 
     thought: async (parent, { _id }) => {
-      return Thought.findOne({ _id:_id }).populate({path: 'user'});
-    },
-
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('thoughts');
-      }
-      throw new AuthenticationError('You need to be logged in!');
+      return Thought.findOne({ _id: _id }).populate('user');
     },
 
     categories: async () => {

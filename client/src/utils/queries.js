@@ -49,8 +49,9 @@ export const QUERY_CATEGORIES = gql`
 `;
 
 export const QUERY_USER = gql`
-  {
+ {
     user {
+      _id
       firstName
       lastName
       thoughts {
@@ -92,8 +93,8 @@ export const QUERY_THOUGHTS = gql`
 `;
 
 export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+  query getSingleThought($_id: ID!) {
+    thought(_id: $_id) {
       _id
       thoughtText
       thoughtAuthor
