@@ -12,15 +12,12 @@ const Forum = () => {
   const thoughts = data?.thoughts || [];
 
   return (
-    <div className="container my-1">
+    <div className="container">
       <Link to="/"> Home</Link>
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
+        <div>
           <ThoughtForm />
         </div>
-        <div className="col-12 col-md-8 mb-3">
+        <div className="">
           {loading ? (
             <div>Loading...</div>
           ) : (

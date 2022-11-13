@@ -9,11 +9,13 @@ import {
   UPDATE_CURRENT_CATEGORY,
   CLEAR_CART,
   TOGGLE_CART,
+  REMOVE_THOUGHT,
 } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
     case UPDATE_PRODUCTS:
+      console.log(action.products);
       return {
         ...state,
         products: [...action.products],
@@ -73,6 +75,13 @@ export const reducer = (state, action) => {
         ...state,
         categories: [...action.categories],
       };
+
+    case REMOVE_THOUGHT: 
+        return {
+          ...state,
+          thought: action.thought
+        }
+      
 
     case UPDATE_CURRENT_CATEGORY:
       return {

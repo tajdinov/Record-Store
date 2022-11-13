@@ -9,11 +9,12 @@ const resolvers = {
   Query: {
 
     user: async (parent, args, context) => {
+      console.log({context});
       if (context.user) {
-        const user = await User.findById(context.user._id).populate('thoughts',{
+        const user = await User.findById(context.user._id).populate({
           path: 'orders.products',
           populate: 'category',
-        });
+        }).populate('thoughts');
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -172,6 +173,7 @@ const resolvers = {
         const thought = await Thought.findOneAndDelete({
           _id: thoughtId,
           thoughtAuthor: context.user.firstName,
+          user: context.user._id
         });
 
         await User.findOneAndUpdate(

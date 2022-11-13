@@ -5,7 +5,7 @@
   min-width: 20%;
   max-width: 30%;
   max-height: 60%;
-  background-color: var(--light);
+  background-color: var(--tertiary);
   overflow: auto;
   padding: .5rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, .5);
@@ -24,7 +24,7 @@
   top: .5rem;
   right: .5rem;
   cursor: pointer;
-  color: var(--tertiary);
+  color: var(--light);
 }
 
 .cart .close:hover {
@@ -33,15 +33,16 @@
 
 .cart-closed {
   position: fixed;
-  top: 2%;
+  top: 6%;
   right: 1%;
   font-size: 2rem;
   cursor: pointer;
-  background-color: var(--secondary);
+  background-color: var(--tertiary);
   border-radius: 50%;
   padding: .25rem;
   width: 50px;
   height: 50px;
+  transition: all 0.5s ease;
 }
 
 .cart-closed:hover {

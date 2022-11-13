@@ -43,9 +43,9 @@ function CategoryMenu() {
 
   return (
     <div>
-      <h2>Choose a Category:</h2>
+      <h4>Choose a Category:</h4>
       {categories.map((item) => (
-        <button
+        <button className='catBtn'
           key={item._id}
           onClick={() => {
             handleClick(item._id);

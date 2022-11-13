@@ -14,6 +14,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^6.2.1",
+    "use-local-storage": "^2.2.5",
+    "react-switch": "^6.0.0",
     "react-scripts": "4.0.2"
   },
   "scripts": {

@@ -20,6 +20,9 @@ import OrderHistory from './pages/OrderHistory';
 import Forum from './pages/Forum';
 import SingleThought from './pages/SingleThought';
 
+import useLocalStorage from 'use-local-storage'
+import ReactSwitch from "react-switch";
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -40,12 +43,22 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [theme, setTheme] = useLocalStorage('theme' ? 'dark' : 'light')
+
+  const switchTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme)}
+
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div  className="app" data-theme={theme}>
+          <div>
+            <label className="switch" onClick={switchTheme}> {theme === "light" ? "☼" : "☽"}</label>
+          </div>
           <StoreProvider>
-            <Nav />
+            <Nav>
+              </Nav>
             <Routes>
               <Route 
                 path="/" 

@@ -18,32 +18,32 @@ const ThoughtList = ({
 
       {thoughts &&
         thoughts.map((thought) => (
-          <div key={thought._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
-                <Link
-                  className="text-light"
-                  to={`/thoughts/${thought._id}`}
-                >
-                  {thought.thoughtAuthor} <br />
-                </Link>
-            </h4>
-            <div className="card-body bg-light p-2">
-              <p>{thought.thoughtText}</p>
+        <div key={thought._id} className="post">
+          <div>
+            <div className='thoughtAuthor'>
+              <p>{thought.thoughtAuthor}</p>
             </div>
-            <div className="my-5">
-            <span style={{ fontSize: '1rem' }}>
+
+            <div className="postText">
+              <p>{thought.thoughtText}</p>            
+              <div>
+                <span style={{ fontSize: '0.6rem' }}>
                     {thought.createdAt}
-                  </span>
+                </span>
+              </div>
+            </div>
+            <div>
               <CommentList comments={thought.comments} />
             </div>
+          </div>
             
             <Link
-              className="btn btn-primary btn-block btn-squared"
+              className="btn btn-primary btn-block btn-squared discussion"
               to={`/thoughts/${thought._id}`}
             >
-              Join the discussion.
+              <p className='discussion'>Join the discussion.</p>
             </Link>
-          </div>
+        </div>
         ))}
     </div>
   );
