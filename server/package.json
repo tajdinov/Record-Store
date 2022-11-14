@@ -5,7 +5,11 @@
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon",
-    "seed": "node config/seeds.js"
+    "seed": "node config/seeds.js",
+    "build": "cd client && npm run build"
+  },
+  "engines": {
+    "node": "16.x"
   },
   "keywords": [],
   "author": "",
