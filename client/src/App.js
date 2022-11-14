@@ -21,7 +21,7 @@ import Forum from './pages/Forum';
 import SingleThought from './pages/SingleThought';
 
 import useLocalStorage from 'use-local-storage'
-import ReactSwitch from "react-switch";
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
