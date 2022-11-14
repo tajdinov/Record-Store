@@ -6,6 +6,8 @@
   --light: #2169a3;
   --dark: #2f74c8;
   --error: #ff0000;
+  --spacing-one: calc(1rem * 0.5);
+  --spacing-two: calc(1rem);
 }
 
 [data-theme='dark'] {
@@ -15,6 +17,8 @@
   --light: #ccd2c6;
   --dark: #8ba88e;
   --error: #ff0000;
+  --spacing-one: calc(1rem * 0.5);
+  --spacing-two: calc(1rem);
 }
 
 * {
@@ -82,13 +86,38 @@ h6 {
 
 p {
   color: var(--light);
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 
 a {
   color: var(--light);
   text-decoration: none;
   font-weight: bold;
+}
+
+.px-1 {
+  padding-right: var(--spacing-one);
+  padding-left: var(--spacing-one);
+}
+
+.px-2 {
+  padding-right: var(--spacing-two);
+  padding-left: var(--spacing-two);
+}
+
+.py-1 {
+  padding-top: var(--spacing-one);
+  padding-bottom: var(--spacing-one);
+}
+
+.py-2 {
+  padding-top: var(--spacing-two);
+  padding-bottom: var(--spacing-two);
+}
+
+.card {
+  width: 25%;
+  text-align: center;
 }
 
 ul li {
@@ -107,6 +136,7 @@ header a {
   color: var(--tertiary);
 }
 
+
 button {
   font-size: 1rem;
   text-decoration: none;
@@ -124,7 +154,10 @@ button {
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  margin-top: 10px;
+  margin-top: 35px;
+  /* margin-right: -191px; */
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .nav li {
@@ -145,14 +178,15 @@ button[disabled] {
 
 }
 
-.records {
-  display: block;
-  padding: 0 0 0 10px;
+.avatar {
+  display: flex;
+  position: relative;
+  margin-left: -230px;
 }
 
 img {
   margin: 10px;
-  width: 30%;
+  max-width: 80px;
 }
 
 span[role="img"] {
@@ -188,6 +222,7 @@ input:focus {
 .flex-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .space-between {
@@ -199,8 +234,11 @@ input:focus {
 }
 
 .card {
-  display: grid;
-  width: 25%;
+
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  margin: 10px;
   border-radius: 1px solid var(--dark);
   text-align: center;
 }
@@ -211,11 +249,14 @@ input:focus {
 
 .switch {
   color: var(--light);
-  padding: 0;
+  position: fixed;
+  /* margin-bottom: 72px; */
+  /* padding: 0; */
   margin-left: 1rem;
-  margin-right: 1rem;
+  bottom: 0.5rem;
+  /* margin-right: 2rem; */
   text-align: end;
-  font-size: 1.5rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -226,6 +267,11 @@ input:focus {
 
 .productStock {
   color: var(--light);
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .postText {
@@ -259,7 +305,7 @@ input:focus {
 
 .products {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 @media screen and (max-width: 768px) {

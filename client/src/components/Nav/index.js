@@ -7,12 +7,9 @@ function Nav() {
 
   return (
     <header className="flex-row px-1">
-      <h1 >
+      <h1>
         <Link to="/">
-        <h1 className="records">Record Playerz</h1>
         <img src={record} alt="Avatar" width={100} className="avatar" />
-          
-          
         </Link>
       </h1>
 
