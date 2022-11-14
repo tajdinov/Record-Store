@@ -54,7 +54,7 @@ function App() {
       <Router>
         <div  className="app" data-theme={theme}>
           <div>
-            <label className="switch" onClick={switchTheme}> {theme === "light" ? "☼" : "☽"}</label>
+            <label className="switch" onClick={switchTheme}> {theme === "light" ? "☽" : "☼"}</label>
           </div>
           <StoreProvider>
             <Nav>

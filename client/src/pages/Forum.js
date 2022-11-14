@@ -12,7 +12,7 @@ const Forum = () => {
   const thoughts = data?.thoughts || [];
 
   return (
-    <div className="container">
+    <div className="container px-2">
       <Link to="/"> Home</Link>
         <div>
           <ThoughtForm />

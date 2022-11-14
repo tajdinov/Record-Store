@@ -42,7 +42,7 @@ function CategoryMenu() {
   };
 
   return (
-    <div>
+    <div className=''>
       <h4>Choose a Category:</h4>
       {categories.map((item) => (
         <button className='catBtn'

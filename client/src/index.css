@@ -12,10 +12,10 @@
 
 [data-theme='dark'] {
   --primary: #252525;
-  --secondary: #3a4e51;
-  --tertiary: #5a786f;
-  --light: #ccd2c6;
-  --dark: #8ba88e;
+  --secondary: #4f517d;
+  --tertiary: #dccfec;
+  --light: #dccfec;
+  --dark: #4f517d;
   --error: #ff0000;
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
@@ -27,11 +27,12 @@
 
 html,
 body {
-  min-height: 100%;
+  min-height: 100vh;
   height: 100vh;
 }
 
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Karla', sans-serif;
@@ -115,6 +116,34 @@ a {
   padding-bottom: var(--spacing-two);
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
+.mx-1 {
+  margin-right: var(--spacing-one);
+  margin-left: var(--spacing-one);
+}
+
+.mx-2 {
+  margin-right: var(--spacing-two);
+  margin-left: var(--spacing-two);
+}
+
+.my-1 {
+  margin-top: var(--spacing-one);
+  margin-bottom: var(--spacing-one);
+}
+
+.my-2 {
+  margin-top: var(--spacing-two);
+  margin-bottom: var(--spacing-two);
+}
+
+label {
+  color: var(--light);
+}
+
 .card {
   width: 25%;
   text-align: center;
@@ -129,13 +158,27 @@ a:hover {
 }
 
 header {
-  background: var(--light);
+  background: linear-gradient(var(--light), var(--dark));
 }
 
 header a {
   color: var(--tertiary);
 }
 
+span {
+  color: var(--light);
+}
+
+.loginContainer {
+  height: 100vh;
+  display: block;
+  margin: 50px;
+
+}
+
+.container {
+  margin: 50px;
+}
 
 button {
   font-size: 1rem;
@@ -146,8 +189,8 @@ button {
   outline: none;
   cursor: pointer;
   margin: 0px 5px 10px 5px;
-  background-color: var(--light);
-  color: var(--primary);
+  background: linear-gradient(var(--light), var(--dark));
+  color: var(--tertiary);
 }
 
 .nav {
@@ -161,7 +204,7 @@ button {
 }
 
 .nav li {
-  margin: 10px;
+  margin: 5px 20px;
 }
 
 button:hover {
@@ -181,7 +224,9 @@ button[disabled] {
 .avatar {
   display: flex;
   position: relative;
-  margin-left: -230px;
+  margin-left: -200px;
+  border-radius: 50px;
+  box-shadow: var(--dark);
 }
 
 img {
@@ -204,6 +249,10 @@ input {
   outline: none;
   border-radius: 3px;
   transition: box-shadow 0.2s;
+}
+
+.cartName {
+  color: var(--light);
 }
 
 input:focus {
@@ -277,7 +326,7 @@ input:focus {
 .postText {
   margin: 10px 150px 0 10px;
   padding: 0 20px;
-  border: 2px solid var(--dark);
+  border: 2px solid var(--light);
   border-radius: 30px 30px 5px 30px;
   vertical-align: baseline;
 }
