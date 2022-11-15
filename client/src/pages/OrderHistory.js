@@ -49,7 +49,7 @@ function OrderHistory() {
 
   return (
     <>
-      <div className="container px-2">
+      <div className="container px-2 py-2">
         <Link to="/">← Back to Products</Link>
 
         {loading ? 'Loading...' : (data &&
@@ -81,7 +81,7 @@ function OrderHistory() {
               Post History for {user.firstName}
             </h2>
             {user.thoughts.map((thought) => (
-              <div key={thought._id} className="postTexr">
+              <div key={thought._id} className="postText">
               <h4 className="card-header bg-primary text-light p-2 m-0">
                   <Link
                     className="text-light"
@@ -91,6 +91,9 @@ function OrderHistory() {
                   </Link>
               </h4>
               <div className="card-body bg-light p-2">
+              <span style={{ fontSize: '1rem' }}>
+        {thought.createdAt}
+        </span>
                 <p>{thought.thoughtText}</p>
                 <a href="/" >Remove</a>
               </div>

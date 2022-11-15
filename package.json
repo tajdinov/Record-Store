@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/tajdinov/Record-Store/issues"
   },
-  "homepage": "https://github.com/tajdinov/Record-Store#readme",
+  "homepage": "https://intense-beach-26403.herokuapp.com/",
   "dependencies": {
     "dotenv": "^16.0.3"
   }
