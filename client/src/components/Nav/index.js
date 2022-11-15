@@ -24,6 +24,11 @@ function Nav() {
       return (
         <ul className="nav">
           <li className="mx-1">
+            <Link to="/gallery">
+              Gallery
+            </Link>
+          </li>
+          <li className="mx-1">
             <Link to="/forum">
               Forum
             </Link>

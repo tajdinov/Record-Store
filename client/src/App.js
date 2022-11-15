@@ -17,6 +17,7 @@ import Nav from './components/Nav';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
+import Gallery from './pages/Gallery';
 import Forum from './pages/Forum';
 import SingleThought from './pages/SingleThought';
 
@@ -81,6 +82,10 @@ function App() {
                 element={<OrderHistory />} 
               />
               <Route 
+                path="/gallery" 
+                element={<Gallery />} 
+              />
+              <Route 
                 path="/forum" 
                 element={<Forum />} 
               />
@@ -92,6 +97,7 @@ function App() {
                 path="/thoughts/:thoughtId"
                 element={<SingleThought />}
               />
+              
               <Route 
                 path="*" 
                 element={<NoMatch />} 
