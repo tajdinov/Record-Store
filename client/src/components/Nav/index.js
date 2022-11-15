@@ -30,7 +30,7 @@ function Nav() {
           </li>
           <li className="mx-1">
             <Link to="/orderHistory">
-              Order History
+              History
             </Link>
           </li>
           <li className="mx-1">
