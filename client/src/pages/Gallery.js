@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import R1 from './assets/R1.jpg';
-import R2 from './assets/R2.jpg';
-import R3 from './assets/R3.jpg';
-import R4 from './assets/R4.jpg';
+import R1 from './assets/R1.jpeg';
+import R2 from './assets/R2.jpeg';
+import R3 from './assets/R3.jpeg';
+import R4 from './assets/R4.jpeg';
 
 const Gallery = () => {
 
