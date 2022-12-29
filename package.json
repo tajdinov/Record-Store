@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/tajdinov/Record-Store/issues"
   },
-  "homepage": "https://intense-beach-26403.herokuapp.com/",
+  "homepage": "record-store-production.up.railway.app",
   "dependencies": {
     "dotenv": "^16.0.3"
   }
