@@ -11,14 +11,13 @@
     "build": "cd client && npm run build",
     "deploy": "node --version"
   },
-  "engines": {
-    "node": "16.x"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^7.6.0",
+    "postcss": "^8.4.20",
+    "postcss-cli": "^10.1.0"
   },
   "repository": {
     "type": "git",
