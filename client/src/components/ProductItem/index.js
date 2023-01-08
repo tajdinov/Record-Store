@@ -119,7 +119,7 @@ function ProductItem(item) {
       <div className=" relative px-4 py-4 h-[380px]">
         <img
           onClick={openModal}
-          className=" w-[200px] h-[200px] "
+          className=" w-[200px] h-[200px] cursor-pointer "
           alt={name}
           src={`/images/${image}`}
         />
