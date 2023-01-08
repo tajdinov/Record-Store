@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import ProductItem from '../ProductItem';
-import { useStoreContext } from '../../utils/GlobalState';
-import { UPDATE_PRODUCTS } from '../../utils/actions';
-import { useQuery } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../../utils/queries';
-import { idbPromise } from '../../utils/helpers';
-import spinner from '../../assets/spinner.gif';
+import React, { useEffect } from "react";
+import ProductItem from "../ProductItem";
+import { useStoreContext } from "../../utils/GlobalState";
+import { UPDATE_PRODUCTS } from "../../utils/actions";
+import { useQuery } from "@apollo/client";
+import { QUERY_PRODUCTS } from "../../utils/queries";
+import { idbPromise } from "../../utils/helpers";
+import spinner from "../../assets/spinner.gif";
 
 function ProductList() {
   const [state, dispatch] = useStoreContext();
@@ -21,10 +21,10 @@ function ProductList() {
         products: data.products,
       });
       data.products.forEach((product) => {
-        idbPromise('products', 'put', product);
+        idbPromise("products", "put", product);
       });
     } else if (!loading) {
-      idbPromise('products', 'get').then((products) => {
+      idbPromise("products", "get").then((products) => {
         dispatch({
           type: UPDATE_PRODUCTS,
           products: products,
@@ -44,10 +44,10 @@ function ProductList() {
   }
 
   return (
-    <div className="container my-2">
-      <h5>Our Products:</h5>
+    <div className=" w-full pb-4 h-full">
+      <h5 className="pt-4 px-2 h-full">Our Products:</h5>
       {state.products.length ? (
-        <div className="flex-row">
+        <div className=" flex flex-wrap w-full h-full justify-center">
           {filterProducts().map((product) => (
             <ProductItem
               key={product._id}
@@ -56,13 +56,18 @@ function ProductList() {
               name={product.name}
               price={product.price}
               quantity={product.quantity}
+              description={product.description}
             />
           ))}
         </div>
       ) : (
         <h3>You haven't added any products yet!</h3>
       )}
-      {loading ? <img src={spinner} alt="loading" /> : null}
+      {loading ? (
+        <div className=" w-full h-screen flex justify-center">
+          <img src={spinner} alt="loading" />
+        </div>
+      ) : null}
     </div>
   );
 }
