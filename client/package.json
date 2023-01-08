@@ -20,8 +20,8 @@
     "use-local-storage": "^2.3.6"
   },
   "scripts": {
-    "start": "npm run watch:css && if-node-version '>= 17' && react-scripts --openssl-legacy-provider start || react-scripts start",
-    "build": "npm run build:css && if-node-version '>= 17' && react-scripts --openssl-legacy-provider build || react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build",
