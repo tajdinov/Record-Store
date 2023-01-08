@@ -7,7 +7,7 @@ import {
 } from "../../utils/actions";
 import { QUERY_CATEGORIES } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
-import { Popover } from "@headlessui/react";
+import { Popover, Transition } from "@headlessui/react";
 import { AiFillCaretDown } from "react-icons/ai";
 
 function CategoryMenu() {
@@ -36,6 +36,29 @@ function CategoryMenu() {
     }
   }, [categoryData, loading, dispatch]);
 
+  // const { data } = useQuery(QUERY_PRODUCTS);
+
+  // useEffect(() => {
+  //   if (data) {
+  //     dispatch({
+  //       type: UPDATE_PRODUCTS,
+  //       products: data.products,
+  //     });
+  //     data.products.forEach((product) => {
+  //       idbPromise("products", "put", product);
+  //     });
+  //   } else if (!loading) {
+  //     idbPromise("products", "get").then((products) => {
+  //       dispatch({
+  //         type: UPDATE_PRODUCTS,
+  //         products: products,
+  //       });
+  //     });
+  //   }
+  // }, [data, loading, dispatch]);
+
+  // const showAll = () => {};
+
   const handleClick = (id) => {
     dispatch({
       type: UPDATE_CURRENT_CATEGORY,
@@ -49,7 +72,7 @@ function CategoryMenu() {
         {({ open }) => (
           /* Use the `open` state to conditionally change the direction of the chevron icon. */
           <>
-            <div className="relative px-2 focus:outline-none">
+            <div className="relative px-2 pb-2 focus:outline-none">
               <Popover.Button>
                 Category
                 <AiFillCaretDown
@@ -58,61 +81,41 @@ function CategoryMenu() {
                 />
               </Popover.Button>
             </div>
-            <Popover.Panel className="absolute z-10">
-              {categories.map((item) => (
+            <Transition
+              enter="transition duration-100 ease-out"
+              enterFrom="transform scale-95 opacity-0"
+              enterTo="transform scale-100 opacity-100"
+              leave="transition duration-75 ease-out"
+              leaveFrom="transform scale-100 opacity-100"
+              leaveTo="transform scale-95 opacity-0"
+            >
+              <Popover.Panel className="absolute z-10">
                 <div className=" inline px-2 ">
                   <button
                     className=" w-[100px]  rounded border-2 bg-white hover:bg-stone-800 dark:bg-stone-800 p-2 dark:hover:bg-white text-stone-800 hover:text-white dark:text-white dark:hover:text-stone-800 duration-300"
-                    key={item._id}
-                    onClick={() => {
-                      handleClick(item._id);
-                    }}
+                    // onClick={showAll}
                   >
-                    {item.name}
+                    All
                   </button>
                 </div>
-              ))}
-
-              <img src="/solutions.jpg" alt="" />
-            </Popover.Panel>
+                {categories.map((item) => (
+                  <div className=" inline px-2 ">
+                    <button
+                      className=" w-[100px]  rounded border-2 bg-white hover:bg-stone-800 dark:bg-stone-800 p-2 dark:hover:bg-white text-stone-800 hover:text-white dark:text-white dark:hover:text-stone-800 duration-300"
+                      key={item._id}
+                      onClick={() => {
+                        handleClick(item._id);
+                      }}
+                    >
+                      {item.name}
+                    </button>
+                  </div>
+                ))}
+              </Popover.Panel>
+            </Transition>
           </>
         )}
       </Popover>
-      {/* <Popover className="relative">
-        <Popover.Button>Choose a Category:</Popover.Button>
-
-        <Popover.Panel className="absolute z-10">
-          {categories.map((item) => (
-            <div className=" inline px-2 ">
-              <button
-                className=" w-[100px] rounded border-2 bg-white hover:bg-stone-800 dark:bg-stone-800 p-2 dark:hover:bg-white text-stone-800 hover:text-white dark:text-white dark:hover:text-stone-800 duration-300"
-                key={item._id}
-                onClick={() => {
-                  handleClick(item._id);
-                }}
-              >
-                {item.name}
-              </button>
-            </div>
-          ))}
-
-          <img src="/solutions.jpg" alt="" />
-        </Popover.Panel>
-      </Popover> */}
-      {/* <h4 className="py-8 px-2">Choose a Category:</h4>
-      {categories.map((item) => (
-        <div className=" inline px-2 ">
-          <button
-            className=" w-[100px] rounded border-2 bg-white hover:bg-stone-800 dark:bg-stone-800 p-2 dark:hover:bg-white text-stone-800 hover:text-white dark:text-white dark:hover:text-stone-800 duration-300"
-            key={item._id}
-            onClick={() => {
-              handleClick(item._id);
-            }}
-          >
-            {item.name}
-          </button>
-        </div>
-      ))} */}
     </div>
   );
 }

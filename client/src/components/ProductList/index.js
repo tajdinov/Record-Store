@@ -56,13 +56,18 @@ function ProductList() {
               name={product.name}
               price={product.price}
               quantity={product.quantity}
+              description={product.description}
             />
           ))}
         </div>
       ) : (
         <h3>You haven't added any products yet!</h3>
       )}
-      {loading ? <img src={spinner} alt="loading" /> : null}
+      {loading ? (
+        <div className=" w-full h-screen flex justify-center">
+          <img src={spinner} alt="loading" />
+        </div>
+      ) : null}
     </div>
   );
 }
