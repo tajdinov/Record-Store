@@ -43,7 +43,7 @@ const Gallery = () => {
             <img
               src={image.image}
               alt={image.id}
-              className=" w-[400px]  m-4 cursor-pointer"
+              className=" md:w-[400px]  m-4 cursor-pointer"
               key={image.id}
             />
           </div>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import record from "./record-playerz.jpeg";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BiHome } from "react-icons/bi";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 import { loadStripe } from "@stripe/stripe-js";
 import { useLazyQuery } from "@apollo/client";
@@ -75,6 +76,9 @@ const Nav = () => {
       variables: { products: productIds },
     });
   }
+
+  const [nav, setNav] = useState(false);
+  const handleClick = () => setNav(!nav);
 
   return (
     <>
@@ -151,25 +155,26 @@ const Nav = () => {
           </div>
         </Dialog>
       </Transition>
-      <div className="flex flex-wrap relative  ">
-        <div className="group">
-          <Link to="/">
-            <img
-              src={record}
-              alt="Avatar"
-              width={80}
-              className=" px-2 py-2 rounded-full group "
-            />
+      <div className=" w-full h-4 md:h-[80px] flex justify-between  items-center px-4 text-white z-20">
+        <div className="hidden md:flex">
+          <div className="group">
+            <Link to="/">
+              <img
+                src={record}
+                alt="Avatar"
+                width={80}
+                className=" px-2 py-2 rounded-full group "
+              />
 
-            <BiHome
-              size={65}
-              className="dark:text-white text-black/80 absolute border-none top-[7.5px] left-[7.5px] opacity-0 group-hover:opacity-100 rounded-full bg-white dark:bg-black/90 duration-500"
-            />
-          </Link>
-        </div>
-        <div className=" relative  top-[25px]">
+              <BiHome
+                size={65}
+                className="dark:text-white text-black/80 absolute border-none top-[7.5px] left-[23.5px] opacity-0 group-hover:opacity-100 rounded-full bg-white dark:bg-black/90 duration-500"
+              />
+            </Link>
+          </div>
+
           {Auth.loggedIn() ? (
-            <div className=" flex flex-wrap ">
+            <div className="flex flex-wrap pt-[25px]">
               <Link
                 to="/gallery"
                 className="  mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500 "
@@ -190,12 +195,12 @@ const Nav = () => {
               >
                 History
               </Link>
-              <div
+              <p
                 onClick={openModal}
                 className="mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500 cursor-pointer"
               >
                 Cart
-              </div>
+              </p>
 
               {/* this is not using the Link component to logout or user and then refresh the application to the start */}
               <a
@@ -224,6 +229,137 @@ const Nav = () => {
             </div>
           )}
         </div>
+      </div>
+
+      {/* Hamburger */}
+      <div
+        onClick={handleClick}
+        className="md:hidden fixed top-4 right-4 z-50 cursor-pointer"
+      >
+        {!nav ? <FaBars /> : <FaTimes />}
+      </div>
+
+      <div>
+        {/* Mobile menu */}
+        <ul
+          className={
+            !nav
+              ? "hidden"
+              : "fixed bg-white dark:bg-black/90 top-0 left-0 w-full h-full text-white flex flex-col justify-center items-center z-10"
+          }
+        >
+          {Auth.loggedIn() ? (
+            <>
+              <li>
+                <img
+                  src={record}
+                  alt="Avatar"
+                  width={80}
+                  className="rounded-full group "
+                />
+              </li>
+              <li>
+                <Link to="/">
+                  <p
+                    className="  py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 "
+                    onClick={handleClick}
+                  >
+                    Home
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <Link to="/gallery">
+                  <p
+                    className="  py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 "
+                    onClick={handleClick}
+                  >
+                    Gallery
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <Link to="/forum">
+                  <p
+                    className="  py-6 text-4xl text-black dark:text-white  hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 "
+                    onClick={handleClick}
+                  >
+                    Forum
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <Link to="/orderHistory">
+                  <p
+                    className="  py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 "
+                    onClick={handleClick}
+                  >
+                    History
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <p
+                  onClick={openModal}
+                  className="py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 cursor-pointer"
+                >
+                  Cart
+                </p>
+              </li>
+
+              <li>
+                <p
+                  className="py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 cursor-pointer"
+                  href="/"
+                  onClick={() => Auth.logout()}
+                >
+                  Logout
+                </p>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <img
+                  src={record}
+                  alt="Avatar"
+                  width={80}
+                  className="rounded-full group "
+                />
+              </li>
+              <li>
+                <Link to="/">
+                  <p
+                    className="  py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 "
+                    onClick={handleClick}
+                  >
+                    Home
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <Link to="/signup">
+                  <p
+                    className="  py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 cursor-pointer"
+                    onClick={handleClick}
+                  >
+                    Signup
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <Link to="/login">
+                  <p
+                    className="py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl  duration-500 cursor-pointer"
+                    onClick={handleClick}
+                  >
+                    Login
+                  </p>
+                </Link>
+              </li>
+            </>
+          )}
+        </ul>
       </div>
     </>
   );

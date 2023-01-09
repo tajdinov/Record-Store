@@ -5,11 +5,11 @@ import CategoryMenu from "../components/CategoryMenu";
 const Home = () => {
   return (
     <div>
-      <div className="pb-6 h-full ">
+      <div className="p-2 pt-4 h-full ">
         <CategoryMenu />
       </div>
       <div>
-        <ProductList />
+        <ProductList className="h-full w-fit" />
       </div>
     </div>
   );

@@ -56,7 +56,7 @@ const CommentForm = ({ thoughtId }) => {
           <form className="py-2" onSubmit={handleFormSubmit}>
             <div className="">
               <textarea
-                className=" w-[500px] p-3 my-2 bg-gray-200 rounded focus:outline-none text-black/60"
+                className=" w-[95%] md:w-[50%] lg:w-[35%] p-3 my-2 bg-gray-200 rounded focus:outline-none text-black/60"
                 name="commentText"
                 placeholder="Add your comment..."
                 value={commentText}

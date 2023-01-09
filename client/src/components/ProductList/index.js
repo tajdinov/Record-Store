@@ -47,7 +47,7 @@ function ProductList() {
     <div className=" w-full pb-4 h-full">
       <h5 className="pt-4 px-2 h-full">Our Products:</h5>
       {state.products.length ? (
-        <div className=" flex flex-wrap w-full h-full justify-center">
+        <div className=" flex flex-wrap w-full justify-center">
           {filterProducts().map((product) => (
             <ProductItem
               key={product._id}
