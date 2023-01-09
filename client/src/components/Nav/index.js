@@ -212,7 +212,7 @@ const Nav = () => {
               </a>
             </div>
           ) : (
-            <div>
+            <div className="flex flex-wrap pt-[25px]">
               <Link
                 className="  mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500 "
                 to="/signup"
