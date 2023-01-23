@@ -139,7 +139,21 @@ const Nav = () => {
                                   Checkout
                                 </button>
                               ) : (
-                                <span>(log in to check out)</span>
+                                <span>
+                                  <Link
+                                    className="  mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500 "
+                                    to="/signup"
+                                  >
+                                    Signup
+                                  </Link>
+
+                                  <Link
+                                    className="mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500"
+                                    to="/login"
+                                  >
+                                    Login
+                                  </Link>
+                                </span>
                               )}
                             </div>
                           </div>
