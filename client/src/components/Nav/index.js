@@ -226,6 +226,12 @@ const Nav = () => {
               >
                 Login
               </Link>
+              <p
+                onClick={openModal}
+                className="mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500 cursor-pointer"
+              >
+                Cart
+              </p>
             </div>
           )}
         </div>
@@ -356,6 +362,14 @@ const Nav = () => {
                     Login
                   </p>
                 </Link>
+              </li>
+              <li>
+                <p
+                  onClick={openModal}
+                  className="py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 cursor-pointer"
+                >
+                  Cart
+                </p>
               </li>
             </>
           )}
