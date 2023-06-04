@@ -45,7 +45,7 @@ function ProductList() {
 
   return (
     <div className=" w-full">
-      <h5 className="pt-4 px-2 h-full cursor-pointer">Our Products:</h5>
+      <h5 className="pt-4 px-2 h-full">Our Products:</h5>
 
       {state.products.length ? (
         <div className=" flex flex-wrap w-full justify-center">

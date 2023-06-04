@@ -191,7 +191,7 @@ const Nav = () => {
             <div className="flex flex-wrap pt-[25px]">
               <Link
                 to="/gallery"
-                className="  mx-6 text-lg text-black  hover:text-sky-700  hover:text-xl duration-500 "
+                className="  mx-6 text-lg text-black   hover:text-sky-700  hover:text-xl duration-500 "
               >
                 Gallery
               </Link>

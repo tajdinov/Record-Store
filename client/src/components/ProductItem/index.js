@@ -6,6 +6,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import Auth from "../../utils/auth";
+import { Link } from "react-router-dom";
 
 function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
@@ -92,20 +94,29 @@ function ProductItem(item) {
                           <div className=" mb-2 ">${price}</div>
 
                           <img
-                            className="rounded pb-2"
+                            className="rounded pb-4"
                             src={`/images/${image}`}
                             alt={name}
                           />
-                          <button
-                            className=" focus:outline-none w-[100px] rounded border-2 bg-white hover:bg-stone-800  text-stone-800 hover:text-white  duration-300 "
-                            // onClick={addToCart}
-                            onClick={() => {
-                              addToCart();
-                              closeModal();
-                            }}
-                          >
-                            Add to cart
-                          </button>
+                          {Auth.loggedIn() ? (
+                            <button
+                              className=" focus:outline-none w-[100px] rounded border-2 bg-white hover:bg-stone-800  text-stone-800 hover:text-white  duration-300 "
+                              // onClick={addToCart}
+                              onClick={() => {
+                                addToCart();
+                                closeModal();
+                              }}
+                            >
+                              Add to cart
+                            </button>
+                          ) : (
+                            <Link
+                              className=" w-[100px] rounded border-2 bg-white hover:bg-stone-800  p-1  text-stone-800 hover:text-white  duration-300 "
+                              to="/login"
+                            >
+                              Login
+                            </Link>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -116,28 +127,21 @@ function ProductItem(item) {
           </div>
         </Dialog>
       </Transition>
-      <div className=" relative px-4 py-4 h-[380px]">
+      <div className=" relative px-4 py-4 h-[380px] " onClick={openModal}>
         <img
-          onClick={openModal}
           className=" w-[200px] h-[200px] cursor-pointer "
           alt={name}
           src={`/images/${image}`}
         />
-        <p className=" mt-2 w-[200px] ">{name}</p>
+        <p className=" mt-2 w-[200px] cursor-pointer">{name}</p>
 
         <div>
-          <div className=" mb-2">
+          <div className=" mb-2 cursor-pointer">
             {quantity} {pluralize("item", quantity)} in stock
           </div>
         </div>
-        <div className=" absolute bottom-1 mb-2">
+        <div className=" absolute bottom-14 mb-2 cursor-pointer">
           <div className=" mb-2 ">${price}</div>
-          <button
-            className=" w-[100px] rounded border-2 bg-white hover:bg-stone-800  p-2  text-stone-800 hover:text-white  duration-300 "
-            onClick={addToCart}
-          >
-            Add to cart
-          </button>
         </div>
       </div>
     </>
