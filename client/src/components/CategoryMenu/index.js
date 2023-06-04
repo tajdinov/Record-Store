@@ -7,8 +7,6 @@ import {
 } from "../../utils/actions";
 import { QUERY_CATEGORIES } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
-import { Popover, Transition } from "@headlessui/react";
-import { AiFillCaretDown } from "react-icons/ai";
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
@@ -36,27 +34,6 @@ function CategoryMenu() {
     }
   }, [categoryData, loading, dispatch]);
 
-  // const { data } = useQuery(QUERY_PRODUCTS);
-
-  // useEffect(() => {
-  //   if (data) {
-  //     dispatch({
-  //       type: UPDATE_PRODUCTS,
-  //       products: data.products,
-  //     });
-  //     data.products.forEach((product) => {
-  //       idbPromise("products", "put", product);
-  //     });
-  //   } else if (!loading) {
-  //     idbPromise("products", "get").then((products) => {
-  //       dispatch({
-  //         type: UPDATE_PRODUCTS,
-  //         products: products,
-  //       });
-  //     });
-  //   }
-  // }, [data, loading, dispatch]);
-
   // const showAll = () => {};
 
   const handleClick = (id) => {
@@ -67,19 +44,23 @@ function CategoryMenu() {
   };
 
   return (
-    <div className=" z-50 focus:outline-none">
+    <div className=" z-50 focus:outline-none flex p-1">
+      <button
+        className=" w-[100%] md:w-[100px]  rounded  bg-white hover:bg-stone-800  d text-stone-800 hover:text-white   duration-300"
+        onClick={() => window.location.reload(false)}
+      >
+        All
+      </button>
       {categories.map((item) => (
-        <div className=" md:inline p-2 ">
-          <button
-            className=" w-[100%] md:w-[100px]  rounded border-2 bg-white hover:bg-stone-800 dark:bg-stone-800 md:p-2 dark:hover:bg-white text-stone-800 hover:text-white dark:text-white dark:hover:text-stone-800 duration-300"
-            key={item._id}
-            onClick={() => {
-              handleClick(item._id);
-            }}
-          >
-            {item.name}
-          </button>
-        </div>
+        <button
+          className=" w-[100%] md:w-[100px]  rounded  bg-white hover:bg-stone-800   text-stone-800 hover:text-white duration-300"
+          key={item._id}
+          onClick={() => {
+            handleClick(item._id);
+          }}
+        >
+          {item.name}
+        </button>
       ))}
     </div>
   );

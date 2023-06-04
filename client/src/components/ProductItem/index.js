@@ -75,8 +75,8 @@ function ProductItem(item) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className=" mx-auto max-w-l md:max-w-2xl sm:max-w-4xl text-left  transition-all transform dark:bg-black/80 bg-white  rounded-2xl border-2 border-white/10 text-slate-800 dark:text-white">
-                  <div className=" w-full dark:text-white text-slate-800">
+                <Dialog.Panel className=" mx-auto max-w-l md:max-w-2xl sm:max-w-4xl text-left  transition-all transform  bg-white  rounded-2xl border-2 border-white/10 text-slate-800 ">
+                  <div className=" w-full  text-slate-800">
                     <div className=" w-full h-full">
                       <div className=" ">
                         <AiOutlineCloseCircle
@@ -97,7 +97,7 @@ function ProductItem(item) {
                             alt={name}
                           />
                           <button
-                            className=" focus:outline-none w-[100px] rounded border-2 bg-white hover:bg-stone-800 dark:bg-stone-800 dark:hover:bg-white text-stone-800 hover:text-white dark:text-white dark:hover:text-stone-800 duration-300 "
+                            className=" focus:outline-none w-[100px] rounded border-2 bg-white hover:bg-stone-800  text-stone-800 hover:text-white  duration-300 "
                             // onClick={addToCart}
                             onClick={() => {
                               addToCart();
@@ -133,7 +133,7 @@ function ProductItem(item) {
         <div className=" absolute bottom-1 mb-2">
           <div className=" mb-2 ">${price}</div>
           <button
-            className=" w-[100px] rounded border-2 bg-white hover:bg-stone-800 dark:bg-stone-800 p-2 dark:hover:bg-white text-stone-800 hover:text-white dark:text-white dark:hover:text-stone-800 duration-300 "
+            className=" w-[100px] rounded border-2 bg-white hover:bg-stone-800  p-2  text-stone-800 hover:text-white  duration-300 "
             onClick={addToCart}
           >
             Add to cart

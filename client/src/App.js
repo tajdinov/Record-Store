@@ -45,7 +45,10 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="  dark:bg-black/90 text-black/90 dark:text-white text-sm h-full">
+      <div
+        className="   text-black/90 text-sm h-screen
+       w-full"
+      >
         <StoreProvider>
           <Nav></Nav>
           <Routes>

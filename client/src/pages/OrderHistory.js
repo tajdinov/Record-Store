@@ -49,12 +49,12 @@ function OrderHistory() {
 
   return (
     <>
-      <div className=" px-4 py-4">
+      <div className=" px-4 py-4 h-screen">
         {loading
           ? "Loading..."
           : data && (
               <>
-                <h2 className=" text-2xl">
+                <h2 className=" text-xl">
                   Order History for {user.firstName} {user.lastName}
                 </h2>
                 {user.orders.map((order) => (
@@ -81,7 +81,7 @@ function OrderHistory() {
                     </div>
                   </div>
                 ))}
-                <h2 className=" text-2xl pt-8">
+                <h2 className=" text-xl pt-8">
                   Post History for {user.firstName} {user.lastName}
                 </h2>
                 {user.thoughts.map((thought) => (
@@ -101,7 +101,7 @@ function OrderHistory() {
                     </div>
                     <div className="py-4">
                       <Link
-                        className=" w-[100px] rounded border-2 bg-white hover:bg-stone-800 dark:bg-stone-800 p-2 dark:hover:bg-white text-stone-800 hover:text-white dark:text-white dark:hover:text-stone-800 duration-300 "
+                        className=" w-[100px] rounded border-2 bg-white hover:bg-stone-800 p-2  text-stone-800 hover:text-white duration-300 "
                         to={`/thoughts/${thought._id}`}
                       >
                         Join the discussion.

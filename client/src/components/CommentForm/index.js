@@ -66,7 +66,7 @@ const CommentForm = ({ thoughtId }) => {
 
             <div className="pt-1">
               <button
-                className=" w-[100px] rounded border-2 bg-white hover:bg-stone-800 dark:bg-stone-800 p-2 dark:hover:bg-white text-stone-800 hover:text-white dark:text-white dark:hover:text-stone-800 duration-300 "
+                className=" w-[100px] rounded border-2 bg-white hover:bg-stone-800 p-2  text-stone-800 hover:text-white   duration-300 "
                 type="submit"
               >
                 Comment

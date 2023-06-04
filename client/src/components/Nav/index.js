@@ -110,8 +110,8 @@ const Nav = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className=" mx-auto max-w-l md:max-w-2xl sm:max-w-4xl text-left  transition-all transform dark:bg-black/80 bg-white  rounded-2xl border-2 border-white/10 text-slate-800 dark:text-white">
-                  <div className=" w-full dark:text-white text-slate-800">
+                <Dialog.Panel className=" p-4 mx-auto max-w-l md:max-w-2xl sm:max-w-4xl text-left  transition-all transform  bg-white  rounded-2xl border-2 border-white/10 text-slate-800 ">
+                  <div className=" w-full  text-slate-800">
                     <div className=" w-full h-full">
                       <div className=" ">
                         <AiOutlineCloseCircle
@@ -133,7 +133,7 @@ const Nav = () => {
 
                               {Auth.loggedIn() ? (
                                 <button
-                                  className="w-[100px] rounded border-2 bg-white hover:bg-stone-800 dark:bg-stone-800 p-2 dark:hover:bg-white text-stone-800 hover:text-white dark:text-white dark:hover:text-stone-800 duration-300"
+                                  className="w-[100px] rounded border-2 bg-white hover:bg-stone-800 p-2  text-stone-800 hover:text-white  duration-300"
                                   onClick={submitCheckout}
                                 >
                                   Checkout
@@ -141,14 +141,14 @@ const Nav = () => {
                               ) : (
                                 <span>
                                   <Link
-                                    className="  mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500 "
+                                    className="  mx-6 text-lg text-black  hover:text-sky-700 hover:text-xl duration-500 "
                                     to="/signup"
                                   >
                                     Signup
                                   </Link>
 
                                   <Link
-                                    className="mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500"
+                                    className="mx-6 text-lg text-black  hover:text-sky-700  hover:text-xl duration-500"
                                     to="/login"
                                   >
                                     Login
@@ -182,7 +182,7 @@ const Nav = () => {
 
               <BiHome
                 size={65}
-                className="dark:text-white text-black/80 absolute border-none top-[7.5px] left-[23.5px] opacity-0 group-hover:opacity-100 rounded-full bg-white dark:bg-black/90 duration-500"
+                className=" text-black/80 absolute border-none top-[7.5px] left-[23.5px] opacity-0 group-hover:opacity-100 rounded-full bg-white  duration-500"
               />
             </Link>
           </div>
@@ -191,34 +191,34 @@ const Nav = () => {
             <div className="flex flex-wrap pt-[25px]">
               <Link
                 to="/gallery"
-                className="  mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500 "
+                className="  mx-6 text-lg text-black  hover:text-sky-700  hover:text-xl duration-500 "
               >
                 Gallery
               </Link>
 
               <Link
-                className="  mx-6 text-lg text-black dark:text-white  hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500 "
+                className="  mx-6 text-lg text-black   hover:text-sky-700  hover:text-xl duration-500 "
                 to="/forum"
               >
                 Forum
               </Link>
 
               <Link
-                className="  mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500 "
+                className="  mx-6 text-lg text-black  hover:text-sky-700  hover:text-xl duration-500 "
                 to="/orderHistory"
               >
                 History
               </Link>
               <p
                 onClick={openModal}
-                className="mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500 cursor-pointer"
+                className="mx-6 text-lg text-black  hover:text-sky-700  hover:text-xl duration-500 cursor-pointer"
               >
                 Cart
               </p>
 
               {/* this is not using the Link component to logout or user and then refresh the application to the start */}
               <a
-                className="mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500"
+                className="mx-6 text-lg text-black  hover:text-sky-700  hover:text-xl duration-500"
                 href="/"
                 onClick={() => Auth.logout()}
               >
@@ -228,21 +228,21 @@ const Nav = () => {
           ) : (
             <div className="flex flex-wrap pt-[25px]">
               <Link
-                className="  mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500 "
+                className="  mx-6 text-lg text-black  hover:text-sky-700  hover:text-xl duration-500 "
                 to="/signup"
               >
                 Signup
               </Link>
 
               <Link
-                className="mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500"
+                className="mx-6 text-lg text-black  hover:text-sky-700  hover:text-xl duration-500"
                 to="/login"
               >
                 Login
               </Link>
               <p
                 onClick={openModal}
-                className="mx-6 text-lg text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-xl duration-500 cursor-pointer"
+                className="mx-6 text-lg text-black  hover:text-sky-700  hover:text-xl duration-500 cursor-pointer"
               >
                 Cart
               </p>
@@ -265,7 +265,7 @@ const Nav = () => {
           className={
             !nav
               ? "hidden"
-              : "fixed bg-white dark:bg-black/90 top-0 left-0 w-full h-full text-white flex flex-col justify-center items-center z-10"
+              : "fixed bg-white  top-0 left-0 w-full h-full text-white flex flex-col justify-center items-center z-10"
           }
         >
           {Auth.loggedIn() ? (
@@ -281,7 +281,7 @@ const Nav = () => {
               <li>
                 <Link to="/">
                   <p
-                    className="  py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 "
+                    className="  py-6 text-4xl text-black  hover:text-sky-700  hover:text-5xl duration-500 "
                     onClick={handleClick}
                   >
                     Home
@@ -291,7 +291,7 @@ const Nav = () => {
               <li>
                 <Link to="/gallery">
                   <p
-                    className="  py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 "
+                    className="  py-6 text-4xl text-black  hover:text-sky-700  hover:text-5xl duration-500 "
                     onClick={handleClick}
                   >
                     Gallery
@@ -301,7 +301,7 @@ const Nav = () => {
               <li>
                 <Link to="/forum">
                   <p
-                    className="  py-6 text-4xl text-black dark:text-white  hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 "
+                    className="  py-6 text-4xl text-black   hover:text-sky-700  hover:text-5xl duration-500 "
                     onClick={handleClick}
                   >
                     Forum
@@ -311,7 +311,7 @@ const Nav = () => {
               <li>
                 <Link to="/orderHistory">
                   <p
-                    className="  py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 "
+                    className="  py-6 text-4xl text-black  hover:text-sky-700  hover:text-5xl duration-500 "
                     onClick={handleClick}
                   >
                     History
@@ -321,7 +321,7 @@ const Nav = () => {
               <li>
                 <p
                   onClick={openModal}
-                  className="py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 cursor-pointer"
+                  className="py-6 text-4xl text-black  hover:text-sky-700  hover:text-5xl duration-500 cursor-pointer"
                 >
                   Cart
                 </p>
@@ -329,7 +329,7 @@ const Nav = () => {
 
               <li>
                 <p
-                  className="py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 cursor-pointer"
+                  className="py-6 text-4xl text-black  hover:text-sky-700  hover:text-5xl duration-500 cursor-pointer"
                   href="/"
                   onClick={() => Auth.logout()}
                 >
@@ -350,7 +350,7 @@ const Nav = () => {
               <li>
                 <Link to="/">
                   <p
-                    className="  py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 "
+                    className="  py-6 text-4xl text-black er:text-sky-700  hover:text-5xl duration-500 "
                     onClick={handleClick}
                   >
                     Home
@@ -360,7 +360,7 @@ const Nav = () => {
               <li>
                 <Link to="/signup">
                   <p
-                    className="  py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 cursor-pointer"
+                    className="  py-6 text-4xl text-black  hover:text-sky-700  hover:text-5xl duration-500 cursor-pointer"
                     onClick={handleClick}
                   >
                     Signup
@@ -370,7 +370,7 @@ const Nav = () => {
               <li>
                 <Link to="/login">
                   <p
-                    className="py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl  duration-500 cursor-pointer"
+                    className="py-6 text-4xl text-black  hover:text-sky-700  hover:text-5xl  duration-500 cursor-pointer"
                     onClick={handleClick}
                   >
                     Login
@@ -380,7 +380,7 @@ const Nav = () => {
               <li>
                 <p
                   onClick={openModal}
-                  className="py-6 text-4xl text-black dark:text-white hover:text-sky-700 dark:hover:text-sky-200 hover:text-5xl duration-500 cursor-pointer"
+                  className="py-6 text-4xl text-black  hover:text-sky-700  hover:text-5xl duration-500 cursor-pointer"
                 >
                   Cart
                 </p>

@@ -44,8 +44,9 @@ function ProductList() {
   }
 
   return (
-    <div className=" w-full pb-4 h-full">
-      <h5 className="pt-4 px-2 h-full">Our Products:</h5>
+    <div className=" w-full">
+      <h5 className="pt-4 px-2 h-full cursor-pointer">Our Products:</h5>
+
       {state.products.length ? (
         <div className=" flex flex-wrap w-full justify-center">
           {filterProducts().map((product) => (
@@ -64,7 +65,7 @@ function ProductList() {
         <h3>You haven't added any products yet!</h3>
       )}
       {loading ? (
-        <div className=" w-full h-screen flex justify-center">
+        <div className=" w-full p-10 mt-2 flex justify-center items-center">
           <img src={spinner} alt="loading" />
         </div>
       ) : null}

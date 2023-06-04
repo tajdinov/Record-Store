@@ -57,7 +57,7 @@ const CartItem = ({ item }) => {
 
           <TbTrashX
             onClick={() => removeFromCart(item)}
-            className=" cursor-pointer px-2 dark:text-white text-slate-800"
+            className=" cursor-pointer px-2  text-slate-800"
             size={40}
           />
         </div>

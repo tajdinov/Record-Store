@@ -1,10 +1,8 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import R1 from "./assets/R1.jpeg";
 import R2 from "./assets/R2.jpeg";
 import R3 from "./assets/R3.jpeg";
 import R4 from "./assets/R4.jpeg";
-import { Dialog, Transition } from "@headlessui/react";
-import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const Gallery = () => {
   const [images, setImages] = useState([
@@ -26,20 +24,11 @@ const Gallery = () => {
     },
   ]);
 
-  const [isOpen, setIsOpen] = useState(false);
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
   return (
     <>
       <div className=" w-full h-full flex flex-wrap p-4 justify-center ">
         {images.map((image) => (
-          <div onClick={openModal}>
+          <div>
             <img
               src={image.image}
               alt={image.id}

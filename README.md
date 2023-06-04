@@ -1,77 +1,76 @@
-# 23 Final Project: MERN Stack Single-Page Application 
+# 23 Final Project: MERN Stack Single-Page Application
+
 # Project : Record-Store
 
-
 ## Description
-Working individually we were tasked to build a MERN Stack Single-Page Application of our choosing. This project provided the opportunity to demonstrate and implement the skills and knoweledge we have learnt since starting our web-development journey. 
 
-While we had the option to choose our own application the project had to include the following: 
+Working individually we were tasked to build a MERN Stack Single-Page Application of our choosing. This project provided the opportunity to demonstrate and implement the skills and knoweledge we have learnt since starting our web-development journey.
+
+While we had the option to choose our own application the project had to include the following:
+
 ### Project Requirements
 
-* Use React for the front end.
+- Use React for the front end.
 
-* Use GraphQL with a Node.js and Express.js server.
+- Use GraphQL with a Node.js and Express.js server.
 
-* Use MongoDB and the Mongoose ODM for the database.
+- Use MongoDB and the Mongoose ODM for the database.
 
-* Use queries and mutations for retrieving, adding, updating, and deleting data.
+- Use queries and mutations for retrieving, adding, updating, and deleting data.
 
-* Be deployed using Heroku (with data).
+- Be deployed using Heroku (with data).
 
-* Have a polished UI.
+- Have a polished UI.
 
-* Be responsive.
+- Be responsive.
 
-* Be interactive (i.e., accept and respond to user input).
+- Be interactive (i.e., accept and respond to user input).
 
-* Include authentication (JWT).
+- Include authentication (JWT).
 
-* Protect sensitive API key information on the server.
+- Protect sensitive API key information on the server.
 
-* Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conventions, indentation, high-quality comments, etc.).
+- Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conventions, indentation, high-quality comments, etc.).
 
-
-The application that was created was called *Record Store*; an e-commerce store for people who love music, DJs, collectors and those who just want to be on track with the latest news.
+The application that was created was called _Record Store_; an e-commerce store for people who love music, DJs, collectors and those who just want to be on track with the latest news.
 <br>
-<br> 
+<br>
 
 To view the applicatoin [click here and you will be directed to the live webpage](https://intense-beach-26403.herokuapp.com/)
 
-
 # Table of Contents
+
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-<br>
-
+  <br>
 
 ## Installation
+
 Assuming the application has successfully been cloned there are a few small steps that need to be followed so that the user can install the application. <br>
 
 First, in the root directroy the user must open the command line and enter <br>
 'npm i'
 <br>
-this will allow all the npm dependencies to be installed. 
+this will allow all the npm dependencies to be installed.
 
-Once the installatin has complete the user must 'seed' the application. Seeding the application is important as it means the products and user information will be created. <br> 
+Once the installatin has complete the user must 'seed' the application. Seeding the application is important as it means the products and user information will be created. <br>
 
 This is done by inputing into the command line <br>
-'npm run seed' 
+'npm run seed'
 <br>
 The user will see a message in the command line once all the seeds have completed seedinng. <br>
 <br>
-The last step to complete installation is to input 'npm run develop' in the root directoy. This allows the 'front end and back end' (server and client folders) to run concurrenty. 
+The last step to complete installation is to input 'npm run develop' in the root directoy. This allows the 'front end and back end' (server and client folders) to run concurrenty.
 
-Once this is done a window will automically open displaying the application. 
-
-
+Once this is done a window will automically open displaying the application.
 
 ## Usage
 
-The application is straightforward and intuitive to use. 
+The application is straightforward and intuitive to use.
 
-When the application first loads the user will see the homepage. 
+When the application first loads the user will see the homepage.
 
 ![home](client/public/images/recordstore.png)
 
@@ -85,26 +84,26 @@ Finally , the user can access their history tab, where will be presented with th
 
 ![HISTORY](client/public/images/history.png)
 
-As a little addition, in the bottom left corner there is a button to toggle between light and dark screen modes.
 <br>
 <br>
 <br>
 <br>
 
 ## Features
-This application was made up of the following features: 
+
+This application was made up of the following features:
+
 - apollo-client
 - bcrypt
-- concurrently 
+- concurrently
 - dotenv
 - express
 - graphQL
 - JWT-decode
 - mongoose
 - node.js
-- nodemon 
+- nodemon
 - react
 - react-dom
 - react-router-dom
 - react-scripts
-
