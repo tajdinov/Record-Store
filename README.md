@@ -36,7 +36,7 @@ The application that was created was called _Record Store_; an e-commerce store 
 <br>
 <br>
 
-To view the applicatoin [click here and you will be directed to the live webpage](https://intense-beach-26403.herokuapp.com/)
+To view the applicatoin [click here and you will be directed to the live webpage](https://record-store-production.up.railway.app/)
 
 # Table of Contents
 
